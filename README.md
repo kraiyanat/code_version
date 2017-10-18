@@ -9,7 +9,7 @@ Url example: http://your_domain/code_version/show
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'code_version'
+gem 'code_version', '~> 0.1.1'
 ```
 
 And then execute:
@@ -21,7 +21,7 @@ And mount rails engine routes to your application routes by putting
 ```ruby
 Rails.application.routes.draw do
 	...
-	mount ServerCodeVersion::Engine => "/code_version"
+	mount CodeVersion::Engine => "/code_version"
 	...
 end
 ```
