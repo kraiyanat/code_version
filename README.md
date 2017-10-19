@@ -3,13 +3,13 @@ The mountable rails engine that provide api call to get the git commit number on
 
 ## Usage
 After install you can go to the url to get a git commit number of code that deploy on server.
-Url example: http://your_domain/code_version/show 
+Url example: http://your_domain/api/metadata
 
 ## Installation
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'code_version', '~> 0.1.1'
+gem 'code_version', '~> 0.1.5'
 ```
 
 And then execute:
@@ -21,7 +21,7 @@ And mount rails engine routes to your application routes by putting
 ```ruby
 Rails.application.routes.draw do
 	...
-	mount CodeVersion::Engine => "/code_version"
+	mount CodeVersion::Engine => "api/metadata"
 	...
 end
 ```
