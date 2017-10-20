@@ -9,7 +9,7 @@ Url example: http://your_domain/api/metadata
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'code_version', '~> 0.1.5'
+gem 'code_version', '~> 0.1.6'
 ```
 
 And then execute:
