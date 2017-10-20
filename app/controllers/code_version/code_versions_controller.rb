@@ -1,15 +1,20 @@
 module CodeVersion
-  class CodeVersionsController < ApplicationController
+  class CodeVersionsController < ActionController::Base
     def show
     	file_path = "#{Rails.root}/REVISION"
     	info = {}
+
     	if File.exists? file_path
-	    	File.open(file_path).each_line do |line|
-	    		info["Git Commit Number"] = line
-	    	end
+        info["deploy_time"] = File.mtime(file_path)
+	    	info["git_commit_hash"] = File.open(file_path).each_line.first.to_s.chomp
 	    else
-	    	info = {"Error" => "No file REVISION in Rails root directory"}
-	    end
+        info["deploy_time"] = "NOT_FOUND"
+	    	info["git_commit_hash"] = "NOT_FOUND"
+      end
+
+      info["environment"] = Rails.env
+
+
     	render :json => info
     end
   end
